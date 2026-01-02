@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name | Electrical Engineering & Designer</title>
+  <meta name="description" content="HKUST Electrical Engineering student | Processor Design, PCB, Hardware, Creative Design"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --accent: #2563eb;
+      --gray: #666;
+      --light: #f8f9fa;
+      --border: #e5e7eb;
+    }
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --accent: #60a5fa;
+      --gray: #94a3b8;
+      --light: #1e293b;
+      --border: #334155;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
+    }
+    header {
+      height: 100vh;
+      min-height: 600px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('assets/img/hero-bg.jpg') center/cover no-repeat;
+      position: relative;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 100px;
+      background: linear-gradient(transparent, var(--bg));
+    }
+    .hero h1 { font-size: 4.5rem; margin-bottom: .5rem; color: white; }
+    .hero p { font-size: 1.5rem; color: #ddd; margin-bottom: 2rem; }
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37,99,235,0.3); }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: all 0.4s;
+    }
+    nav.scrolled { background: rgba(255,255,255,0.95); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    [data-theme="dark"] nav.scrolled { background: rgba(15,23,42,0.95); }
+    nav a { color: var(--text); text-decoration: none; margin: 0 1rem; font-weight: 500; }
+    .theme-toggle { background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--text); }
+    section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; }
+    .skill {
+      background: var(--light);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: var(--light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      border: 1px solid var(--border);
+    }
+    .card:hover { transform: translateY(-10px); }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card-body { padding: 1.5rem; }
+    .card h3 { margin-bottom: .5rem; }
+    .card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-size: 0.75rem;
+      background: rgba(37,99,235,0.1);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    footer {
+      background: var(--light);
+      padding: 4rem 5%;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      nav a { margin: 0 .5rem; font-size: .9rem; }
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <nav>
+    <div class="logo"><strong>Your Name</strong></div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+    </div>
+  </nav>
+
+  <header>
+    <div class="hero">
+      <h1>Your Full Name</h1>
+      <p>Electrical Engineering @ HKUST | Hardware Designer | Creative Maker</p>
+      <a href="#about" class="btn">Explore My Work</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <img src="assets/img/your-photo.jpg" alt="Your Name" class="about-img"/>
+      <div>
+        <p style="font-size:1.1rem; margin-bottom:1.5rem;">
+          Hi! I’m a Year X Electrical Engineering student at HKUST with a passion for building things that sit at the intersection of hardware, design, and creativity.
+        </p>
+        <p>
+          From designing 32-bit processors in Verilog to laying out multi-layer PCBs in Altium, and from creating surreal clock faces with complex numbers to shooting film photography — I love turning ideas into tangible, beautiful things.
+        </p>
+        <div class="skills">
+          <span class="skill">Verilog / SystemVerilog</span>
+          <span class="skill">PCB Design (Altium)</span>
+          <span class="skill">C / C++ / Python</span>
+          <span class="skill">RISC-V</span>
+          <span class="skill">Analog Circuits</span>
+          <span class="skill">Figma / Canva</span>
+          <span class="skill">Photography</span>
+          <span class="skill">Embedded Systems</span>
+        </div>
+        <br/>
+        <a href="assets/resume.pdf" class="btn" style="background:#10b981">Download Resume ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="background:var(--light);">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <!-- Repeat this card for each project -->
+      <div class="card">
+        <img src="assets/img/project1.jpg" alt="32-bit Processor"/>
+        <div class="card-body">
+          <h3>32-bit RISC-V Processor</h3>
+          <p>Full 5-stage pipelined RV32I processor designed from scratch in Verilog. Includes hazard detection, forwarding, and branch prediction.</p>
+          <div class="tags">
+            <span class="tag">Verilog</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">RISC-V</span>
+          </div>
+          <br/>
+          <a href="https://github.com/yourusername/processor" target="_blank" style="color:var(--accent); font-weight:600;">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/project2.jpg" alt="PCB Project"/>
+        <div class="card-body">
+          <h3>High-Speed 4-Layer PCB</h3>
+          <p>Designed and fabricated a 4-layer board with impedance-controlled traces, BGA fanout, and power integrity optimization.</p>
+          <div class="tags">
+            <span class="tag">Altium Designer</span>
+            <span class="tag">Signal Integrity</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/clock.jpg" alt="Complex Number Clock"/>
+        <div class="card-body">
+          <h3>Complex-Plane Clock</h3>
+          <p>A clock that displays time using complex numbers and surreal visuals. Pure CSS + JS creativity.</p>
+          <div class="tags">
+            <span class="tag">Creative Coding</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
+          <br/>
+          <a href="https://your-clock-link" target="_blank" style="color:var(--accent); font-weight:600;">Live Demo ↗</a>
+        </div>
+      </div>
+      <!-- Add more cards as needed -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let's Connect</h2>
+    <p style="text-align:center; font-size:1.2rem; max-width:700px; margin:0 auto 3rem;">
+      Always excited to chat about hardware, design, photography, or just cool ideas.
+    </p>
+    <div style="text-align:center; font-size:2.5rem;">
+      <a href="https://linkedin.com/in/yourusername" style="color:var(--accent); margin:0 1rem;"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/yourusername" style="color:var(--accent); margin:0 1rem;"><i class="fab fa-github"></i></a>
+      <a href="mailto:your.email@connect.hkust.edu.hk" style="color:var(--accent); margin:0 1rem;"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your Name. Made with ❤️ and a lot of coffee.</p>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const toggle = document.querySelector('.theme-toggle i');
+    toggle.addEventListener('click', () => {
+      const theme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', theme);
+      toggle.classList.toggle('fa-moon');
+      toggle.classList.toggle('fa-sun');
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
