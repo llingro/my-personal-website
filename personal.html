@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheung Tsun Hin - Electronic and Computer Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Font */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            scroll-behavior: smooth;
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .header a {
+            color: #87ceeb; /* Light blue for links */
+            text-decoration: none;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        section {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #87ceeb;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* Summary */
+        .summary p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* Education & Experience & Competition & Projects */
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-list li {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .item-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-list h3 {
+            font-size: 1.4em;
+            color: #34495e;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .item-list .subtitle {
+            font-size: 1em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .item-list ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .item-list ul li {
+            margin-bottom: 8px;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.2em;
+            color: #34495e;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-category ul li {
+            background-color: #e9f5f9;
+            color: #2c3e50;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        
+        /* Additional Info */
+        .additional-info p {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .additional-info strong {
+            color: #34495e;
+        }
+
+        /* Project Links */
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #87ceeb;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #6fb9e0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            .item-list h3 {
+                font-size: 1.2em;
+            }
+
+            .item-list .subtitle {
+                font-size: 0.9em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr; /* Stack skills on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header p {
+                font-size: 0.9em;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Cheung Tsun Hin</h1>
+            <p>Electronic and Computer Engineering Student</p>
+            <p>
+                <a href="mailto:thcheungax@connect.ust.hk">thcheungax@connect.ust.hk</a> | Hong Kong | Available Immediately
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="summary" class="summary">
+            <h2>Summary</h2>
+            <p>
+                Student from HKUST with a Bachelor of Electronic and Computer Engineering (tends to Signal Processing and Communications/ Integrated Circuits and Systems).
+            </p>
+            <p>
+                I like to build circuits related to Digital Logic Design; it is fun because a single gate (AND, OR etc.) is universal. With just that one primitive, you can build anything—adders, memories, CPUs. It’s like having a Lego brick that can become the whole spaceship.
+            </p>
+            <p>
+                I am also willing to learn and adapt to new technologies and environments.
+            </p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <ul class="item-list">
+                <li>
+                    <h3>Hong Kong University of Science and Technology</h3>
+                    <span class="subtitle">BEng in Electronic Engineering | Sept 2023 – Current</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <ul class="item-list">
+                <li>
+                    <h3>Electronic Engineer Intern, GROWGREEN LIMITED</h3>
+                    <span class="subtitle">Dec 2025 – Feb 2026</span>
+                    <ul>
+                        <li>Developed computer vision system using OpenCV to accurately measure varying plant heights in indoor farming applications.</li>
+                        <li>Diagnosed and repaired hydroponic planting machines, applying hardware expertise to ensure reliable operation and maintenance.</li>
+                        <li>Conducted on-site installations and user training of planting systems at elderly centers, promoting adoption of tech solutions for community benefit.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Student Helper, Hong Kong University of Science and Technology</h3>
+                    <span class="subtitle">June 2025 – Current</span>
+                    <ul>
+                        <li>Provided frontline technical support to users, resolving hardware, software, and network issues to ensure minimal downtime and optimal system performance.</li>
+                        <li>Assisted in managing IT ticketing systems, prioritizing and escalating issues to maintain efficient workflows.</li>
+                        <li>Supported system administration tasks, including user account management, software installations, and patch updates, enhancing operational efficiency.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Member, HKUST ECE Makerspace</h3>
+                    <span class="subtitle">Feb 2025 – Current</span>
+                    <ul>
+                        <li>Our team works together on projects ranging from coursework to hobbies and gifts at the student-run HKUST ECE MakerSpace (i.e., flashlight with counter).</li>
+                        <li>Study and produce excellent work thanks to the space's resources (software and equipment). Senior members host community events such as tutorials, seminars, and workshops that encourage the exchange of ideas and best practices while giving junior members practical problem-solving skills.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Technology & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Verilog</li>
+                        <li>VHDL</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technologies / Tools</h3>
+                    <ul>
+                        <li>OpenCV</li>
+                        <li>Microsoft Excel</li>
+                        <li>Microsoft Word</li>
+                        <li>Xilinx Vivado</li>
+                        <li>Kicad</li>
+                        <li>Ltspice</li>
+                        <li>Pspice</li>
+                        <li>Logisim</li>
+                        <li>Blender</li>
+                        <li>Photoshop</li>
+                        <li>Lightroom</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="competition">
+            <h2>Competition</h2>
+            <ul class="item-list">
+                <li>
+                    <h3>Robot Design Contest, Hong Kong University of Science and Technology</h3>
+                    <span class="subtitle">Sep 2025 – Nov 2025</span>
+                    <ul>
+                        <li>Working as hardware team.</li>
+                        <li>Designed a robot which can grab objects and track on a white line.</li>
+                        <li>Designed PCB (Schematic and PCB edit).</li>
+                        <li>Soldering with PCB, routing with wires.</li>
+                        <li>Collaborated with mechanics/software team about routing and component placement.</li>
+                        <li>Received offer to become candidate for HKUST Robotics Team 2025-2026 -- UAV team.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul class="item-list">
+                <li>
+                    <h3>24 hrs Clock</h3>
+                    <ul>
+                        <li>Can modify hh/mm/ss.</li>
+                        <li>All are built by logic gates.</li>
+                        <li>Main Tools Used: Logisim.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Door Locked System</h3>
+                    <ul>
+                        <li>The system will output a signal if the input of a four-digit password is correct.</li>
+                        <li>All are built by logic gates.</li>
+                        <li>Main Tools Used: Logisim.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Full Bridge Rectifier PCB</h3>
+                    <ul>
+                        <li>Uses four diodes to convert alternating current (AC) to direct current (DC).</li>
+                        <li>Adding a capacitor can smooth out the ripples and create a more stable DC voltage.</li>
+                        <li>To 12V DC.</li>
+                        <li>Main Tools Used: Kicad.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Traffic Light</h3>
+                    <ul>
+                        <li>Using digital logic skills (FSM) and code with Verilog.</li>
+                        <li>Red (00) -> Yellow (01) -> Green (10) -> Yellow (11) looping.</li>
+                        <li>Main Tools Used: Xilinx Vivado.</li>
+                        <li>Hope can make a real figure in real life.</li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="https://drive.google.com/drive/folders/1HD21Vh886UYHtpCxsErnf3L4srwBDRWg?usp=sharing" target="_blank" class="project-link">View All Projects on Google Drive</a>
+        </section>
+
+        <section id="additional-info" class="additional-info">
+            <h2>Additional Information</h2>
+            <p><strong>Languages:</strong> English (Fluent), Mandarin (Native), Cantonese (Native)</p>
+            <p><strong>Status:</strong> HKSAR Permanent Resident</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Cheung Tsun Hin. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
